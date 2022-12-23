@@ -48,6 +48,10 @@ cursor: pointer;
     right: 25px;
 }
 
+.hidden {
+    display: none;
+}
+
 #carousel #slide-box {
     height: 100%;
 }
