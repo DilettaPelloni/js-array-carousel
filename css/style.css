@@ -35,12 +35,21 @@ main {
     transform: translatey(-50%);
 }
 
+#carousel #button-box .button-left:hover,
+#carousel #button-box .button-right:hover {
+cursor: pointer;
+}
+
 #carousel #button-box .button-left {
     left: 25px;
 }
 
 #carousel #button-box .button-right {
     right: 25px;
+}
+
+.hidden {
+    display: none;
 }
 
 #carousel #slide-box {
