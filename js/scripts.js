@@ -72,8 +72,7 @@ buttonLeft.addEventListener ('click',
             //altrimenti, decremento di 1 la variabile current
             current--;
         }
-
-        console.log(current);
+        
         //assegno la classe current alla slide precedente
         slideList[current].classList.add('current');
 

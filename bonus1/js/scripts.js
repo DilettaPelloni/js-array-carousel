@@ -27,7 +27,6 @@ let current = 0;
 
 //creo un array con le slide
 const slideList = document.getElementsByClassName('slide');
-console.log(slideList);
 
 //prendo i bottoni
 const buttonLeft = document.querySelector('.button-left');
@@ -40,22 +39,20 @@ buttonRight.addEventListener ('click',
         // tolgo la classe current alla slide corrente
         slideList[current].classList.remove('current');
 
-        //incremento di 1 la variabile current
-        current++;
+        // se mi trovo all'ultima slide
+        if (current == slideList.length - 1) {
+            //riporto current a 0
+            current = 0;
+
+        }
+        else {
+            //altrimenti, incremento di 1 la variabile current
+            current++;
+        }
 
         //assegno la classe current alla slide successiva
         slideList[current].classList.add('current');
 
-        //rendo visibile il bottone di sinistra togliendo la classe hidden
-        buttonLeft.classList.remove('hidden');
-
-        //se sono all'ultima slide:
-        if (current == slideList.length - 1) {
-
-            //faccio sparire il bottone di destra
-            buttonRight.classList.add('hidden');
-
-        }
 	}
 )
 
@@ -66,22 +63,19 @@ buttonLeft.addEventListener ('click',
         // tolgo la classe current alla slide corrente
         slideList[current].classList.remove('current');
 
-        //decremento di 1 la variabile current
-        current--;
-
+        // se mi trovo alla prima slide
+        if (current == 0) {
+            //porto current all'indice dell'ultima slide
+            current = slideList.length - 1;
+        }
+        else {
+            //altrimenti, decremento di 1 la variabile current
+            current--;
+        }
+        
         //assegno la classe current alla slide precedente
         slideList[current].classList.add('current');
 
-        //rendo visibile il bottone di destra togliendo la classe hidden
-        buttonRight.classList.remove('hidden');
-
-        //se sono alla prima slide:
-        if (current == 0) {
-
-            //faccio sparire il bottone di sinistra
-            buttonLeft.classList.add('hidden');
-
-        }
 	}
 )
 
