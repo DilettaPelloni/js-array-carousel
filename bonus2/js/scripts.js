@@ -1,6 +1,3 @@
-//vado a prendere la slide box
-const slideBox = document.getElementById('slide-box');
-
 //creo un array con i percorsi delle immagini
 const imgList = [
     'img/01.webp',
@@ -10,49 +7,24 @@ const imgList = [
     'img/05.webp'
 ];
 
-//con un ciclo creo tante slide all'interno di slide box quante sono le immagini
+//vado a prendere la slide box
+const slideBox = document.getElementById('slide-box');
+
+//vado a prendere la thumb box
+const thumbBox = document.querySelector('.thumb-box');
+
+//con un ciclo creo tante slide all'interno di slide box quante sono le immagini e tante thumb all'interno di thumb box quante sono le immagini
 for (let i = 0; i < imgList.length; i++) {
 
     slideBox.innerHTML += `<div class="slide">
                              <img src="${imgList[i]}">
                            </div>`;
-
-}
-
-
-
-
-//vado a prendere la thumb box
-const thumbBox = document.querySelector('.thumb-box');
-
-//con un ciclo creo tante thumb all'interno di thumb box quante sono le immagini
-for (let i = 0; i < imgList.length; i++) {
-
     thumbBox.innerHTML += `<div class="thumb">
-                             <img src="${imgList[i]}">
-                             <div class="frame overlay"></div>
-                           </div>`;
+                           <img src="${imgList[i]}">
+                           <div class="frame overlay"></div>
+                         </div>`;
 
 }
-
-
-
-
-//do alla prima slide la classe current, che la rende visibile
-document.querySelector('#slide-box .slide').classList.add('current');
-
-//do alla frame della prima thumb selected e tolgo overlay
-document.querySelector('.thumb-box .frame').classList.add('selected');
-document.querySelector('.thumb-box .frame').classList.remove('overlay');
-
-
-
-
-//creo la variabile current che servirà ad inidcare la slide corrente e quindi visibile
-let current = 0;
-
-
-
 
 //creo un array con le slide
 const slideList = document.getElementsByClassName('slide');
@@ -60,6 +32,15 @@ const slideList = document.getElementsByClassName('slide');
 //creo un array con le frame
 const frameList = document.getElementsByClassName('frame');
 
+//do alla prima slide la classe current, che la rende visibile
+slideList[0].classList.add('current');
+
+//do alla frame della prima thumb selected e tolgo overlay
+frameList[0].classList.add('selected');
+frameList[0].classList.remove('overlay');
+
+//creo la variabile current che servirà ad inidcare la slide corrente e quindi visibile
+let current = 0;
 
 //prendo i bottoni
 const buttonTop = document.querySelector('.button-top');
@@ -79,7 +60,6 @@ buttonBottom.addEventListener ('click',
         if (current == slideList.length - 1) {
             //riporto current a 0
             current = 0;
-
         }
         else {
             //altrimenti, incremento di 1 la variabile current
